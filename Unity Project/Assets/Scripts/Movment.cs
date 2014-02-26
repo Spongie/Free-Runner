@@ -38,7 +38,7 @@ public class Movment : MonoBehaviour {
 		Vector2 direction = startPos-curentPos;
 		direction.Normalize();
 		
-		transform.position += new Vector3(direction.x,0,direction.y);
+		transform.position += new Vector3(direction.x,0,direction.y)*Time.deltaTime;
 		
 	}
 }
