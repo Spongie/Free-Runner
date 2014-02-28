@@ -6,12 +6,7 @@ public class Movment : MonoBehaviour {
 	public Vector2 startPos;
 	public Vector2 curentPos;
 	public float jumpPower;
-	
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		/*if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
 			Move ();
@@ -32,7 +27,7 @@ public class Movment : MonoBehaviour {
 		else
 			startPos.x = -100000;
  		if (Input.GetKeyDown (KeyCode.Space))
-     			 Jump ();
+     			 Jump();
 	}
 	
 	void Move()
@@ -44,7 +39,7 @@ public class Movment : MonoBehaviour {
 		transform.position += new Vector3(direction.x,0,direction.y)*Time.deltaTime;
 		
 	}
-	void jump()
+	void Jump()
 	{
 		Rigidbody r = GetComponent<Rigidbody> ();
       		r.AddForce (Vector3.up * jumpPower);

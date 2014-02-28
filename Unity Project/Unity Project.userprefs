@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Dropbox\ZpeedRunner\Unity\Project\Assets\WallSpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Movment.cs">
     <Files>
-      <File FileName="..\..\..\..\Dropbox\ZpeedRunner\Unity\Project\Assets\WallSpawner.cs" Line="26" Column="3" />
-      <File FileName="..\..\..\..\Dropbox\ZpeedRunner\Unity\Project\Assets\Scripts\PlayerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SpawnPoint.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SpawnFinder.cs" Line="27" Column="3" />
+      <File FileName="Assets\Scripts\Movment.cs" Line="42" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
