@@ -5,6 +5,7 @@ public class SpawnFinder : MonoBehaviour {
 
 	public Transform player;
 	SpawnPoint[] spawnPoints;
+	public float jumpPower;
 
 	void Start()
 	{
