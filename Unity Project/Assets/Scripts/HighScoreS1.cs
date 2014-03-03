@@ -51,7 +51,7 @@ public class HighScoreS1 : MonoBehaviour
 			int changes = 0;
 			for(int i = 0; i < highScoreTimes.Count - 1; i++)
 			{
-				if(highScoreTimes[i] < highScoreTimes[i+1])
+				if(int.Parse(highScoreTimes[i]) < int.Parse(highScoreTimes[i+1]))
 				{
 					Swap (i);
 					changes++;
