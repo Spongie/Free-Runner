@@ -2,10 +2,21 @@
 using System.Collections;
 
 public class Movment : MonoBehaviour {
-	public Transform player;
-	public Vector2 startPos;
-	public Vector2 curentPos;
+
+	Vector2 startPos;
+	Vector2 curentPos;
 	public float jumpPower;
+	Vector3 direction;
+	public GUITexture movmentStick;
+	bool moving;
+	GameObject playerObj;
+
+	void Start()
+	{
+		playerObj = GameObject.FindGameObjectWithTag("Player");
+		moving = false;
+		startPos = movmentStick.GetScreenRect().center;
+	}
 
 	void Update () {
 		/*if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved) {
@@ -13,36 +24,29 @@ public class Movment : MonoBehaviour {
 		}
 		else if (Input.GetTouch(0).phase == TouchPhase.Began)
 			startPos = Input.GetTouch(0).deltaPosition;*/
+		if(movmentStick.GetScreenRect().Contains(Input.mousePosition) && Input.GetMouseButtonDown(0))
+		{
+			Debug.Log("Started Moving");
+			moving = true;
+		}
+		if(Input.GetMouseButtonUp(0) && moving)
+			moving = false;
 		
-		if(Input.GetMouseButton(0)&& startPos.x > -100000)
+		if(moving)
 		{
 			curentPos = Input.mousePosition;
 			Move();
 		}
-		else if(Input.GetMouseButton(0) && startPos.x == -100000)
-		{
-			startPos = Input.mousePosition;
-			Move();
-		}
-		else
-			startPos.x = -100000;
- 		if (Input.GetKeyDown (KeyCode.Space))
-     			 Jump();
 	}
 	
 	void Move()
 	{
+		Vector3 Ddirection = playerObj.transform.forward;
+		if(curentPos.y < startPos.y)
+			Ddirection *= -1;
+		direction = Ddirection.normalized;
+		playerObj.transform.Translate(direction*Time.deltaTime, Space.World);
 		
-		Vector2 direction = startPos-curentPos;
-		direction.Normalize();
-		
-		transform.position += new Vector3(direction.x,0,direction.y)*Time.deltaTime;
-		
-	}
-	void Jump()
-	{
-		Rigidbody r = GetComponent<Rigidbody> ();
-      		r.AddForce (Vector3.up * jumpPower);
 	}
 }
 
