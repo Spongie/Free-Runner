@@ -88,7 +88,7 @@ public class HighScoreS1 : MonoBehaviour
 
 	private void SaveToFile()
 	{
-		System.IO.File.WriteAllLines("times.txt", highScoreTimes);
-		System.IO.File.WriteAllLines("names.txt", highScoreNames);
+		System.IO.File.WriteAllLines("times.txt", highScoreTimes.ToArray());
+		System.IO.File.WriteAllLines("names.txt", highScoreNames.ToArray());
 	}
 }
