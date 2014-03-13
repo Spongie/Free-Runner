@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: e36010c467c687949bfd609e7fac7c27
+guid: 90abf3fae7e53eb4b8a3c6fdfed246a5
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: Box001
     100002: Box005
@@ -99,7 +99,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: .100000001
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -132,5 +132,4 @@ ModelImporter:
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
-  additionalBone: 0
   userData: 
