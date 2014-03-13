@@ -5,7 +5,7 @@ public class Movment : MonoBehaviour {
 
 	Vector2 startPos;
 	Vector2 curentPos;
-	public float jumpPower;
+	public float speed;
 	Vector3 direction;
 	public GUITexture movmentStick;
 	bool moving;
@@ -45,7 +45,7 @@ public class Movment : MonoBehaviour {
 		if(curentPos.y < startPos.y)
 			Ddirection *= -1;
 		direction = Ddirection.normalized;
-		playerObj.transform.Translate(direction*Time.deltaTime, Space.World);
+		playerObj.transform.Translate(direction*Time.deltaTime*speed, Space.World);
 		
 	}
 }
