@@ -18,14 +18,27 @@ public class RotationStick : MonoBehaviour {
 	}
 
 	void Update () {
-		if(Input.GetMouseButtonDown(0) && rotationStick.GetScreenRect().Contains(Input.mousePosition))
-			rotating = true;
-		if(Input.GetMouseButtonUp(0))
-			rotating = false;
-		if(rotating)
+		Touch touch = null;
+		for(int i = 0; i < Input.touchCount)
 		{
-			currentPos = Input.mousePosition;
-			Move();
+			if(Input.touches[i].position.x <0)
+				touch = Input.touches[i];
+		}
+		if(touch != null)
+		{
+			if(movmentStick.GetScreenRect().Contains(touch))
+			{
+				Debug.Log("Started Rotating");
+				rotating = true;
+			}
+			else
+				rotating = false;
+			
+			if(moving)
+			{
+				curentPos = touch.position;
+				Move();
+			}
 		}
 	}
 
