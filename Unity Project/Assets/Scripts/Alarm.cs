@@ -16,28 +16,16 @@ public class Alarm : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.anyKey)
-		{
-			RaiseAwareness();
-			ChangeAlertBar();
-		}
 
 		if(IsDetected())
 			Debug.Log("Detected Bitch");
 	}
 
-	public bool IsAwareOfPlayer()
-	{
-		float enemyDistanceFromPlayer = 10;
-		if(enemyDistanceFromPlayer<= detectRadius)
-			return true;
-		else 
-			return false;
-	}
 
 	public void RaiseAwareness()
 	{
 		awareness += awarenessRate;
+		ChangeAlertBar();
 	}
 
 	public bool IsDetected()
