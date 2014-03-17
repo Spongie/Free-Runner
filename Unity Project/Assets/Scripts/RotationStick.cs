@@ -18,26 +18,23 @@ public class RotationStick : MonoBehaviour {
 	}
 
 	void Update () {
-		Touch touch = null;
-		for(int i = 0; i < Input.touchCount)
+		for(int i = 0; i < Input.touchCount; i++)
 		{
 			if(Input.touches[i].position.x <0)
-				touch = Input.touches[i];
-		}
-		if(touch != null)
-		{
-			if(movmentStick.GetScreenRect().Contains(touch))
 			{
-				Debug.Log("Started Rotating");
-				rotating = true;
-			}
-			else
-				rotating = false;
-			
-			if(moving)
-			{
-				curentPos = touch.position;
-				Move();
+				if(rotationStick.GetScreenRect().Contains(Input.GetTouch(i).position))
+				{
+					Debug.Log("Started Rotating");
+					rotating = true;
+				}
+				else
+					rotating = false;
+				
+				if(rotating)
+				{
+					currentPos = Input.GetTouch(i).position;
+					Move();
+				}
 			}
 		}
 	}

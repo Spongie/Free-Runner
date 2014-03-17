@@ -19,26 +19,23 @@ public class Movment : MonoBehaviour {
 	}
 
 	void Update () {
-		Touch touch = null;
-		for(int i = 0; i < Input.touchCount)
+		for(int i = 0; i < Input.touchCount; i++)
 		{
 			if(Input.touches[i].position.x >0)
-				touch = Input.touches[i];
-		}
-		if(touch != null)
-		{
-			if(movmentStick.GetScreenRect().Contains(touch))
 			{
-				Debug.Log("Started Moving");
-				moving = true;
-			}
-			else
-				moving = false;
-
-			if(moving)
-			{
-				curentPos = touch.position;
-				Move();
+				if(movmentStick.GetScreenRect().Contains(Input.GetTouch(i).position))
+				{
+					Debug.Log("Started Moving");
+					moving = true;
+				}
+				else
+					moving = false;
+				
+				if(moving)
+				{
+					curentPos = Input.GetTouch(i).position;
+					Move();
+				}
 			}
 		}
 	}
