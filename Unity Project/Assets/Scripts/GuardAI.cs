@@ -17,10 +17,12 @@ public class GuardAI : MonoBehaviour {
 	int pointWalkedPast;
 	public float walkSpeed;
 	AIStates state;
+	public NavMesh agent;
+
 
 	// Use this for initialization
 	void Start () {
-		state = AIStates.Patroling;
+		state = AIStates.Idle;
 	}
 	
 	// Update is called once per frame
@@ -49,10 +51,6 @@ public class GuardAI : MonoBehaviour {
 
 	public void Patroling()
 	{
-		Vector3 direction = patrolPoints[pointWalkedPast]-transform.position;
-		direction.Normalize();
-		transform.position+=(walkSpeed*direction*Time.deltaTime);
-
 		if(Vector3.Distance(patrolPoints[pointWalkedPast], transform.position)<1)
 			if(pointWalkedPast == patrolPoints.Length - 1)
 				pointWalkedPast = 0;
