@@ -24,8 +24,11 @@ public class Alarm : MonoBehaviour {
 
 	public void RaiseAwareness()
 	{
-		awareness += awarenessRate;
-		ChangeAlertBar();
+		if(maxAwareness>awareness)
+		{
+			awareness += awarenessRate;
+			ChangeAlertBar();
+		}
 	}
 
 	public bool IsDetected()
