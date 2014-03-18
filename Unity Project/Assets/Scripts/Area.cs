@@ -6,7 +6,8 @@ public class Area : MonoBehaviour {
 	public GUITexture PopUpBackground;
 	public float secondsToDisplay;
 	float currentTimeElapsed;
-    GUIText text;
+    public GUIText text;
+    public bool destroyAble = false;
 
 	void Start()
 	{
@@ -20,8 +21,12 @@ public class Area : MonoBehaviour {
 		if (PopUpBackground.enabled) 
 		{
 			currentTimeElapsed += Time.deltaTime;
-			if(currentTimeElapsed > secondsToDisplay)
-				PopUpBackground.enabled = false;
+            if (currentTimeElapsed > secondsToDisplay)
+            {
+                PopUpBackground.enabled = false;
+                if (destroyAble)
+                    Destroy(this.gameObject);
+            }
 		}
         text.enabled = PopUpBackground.enabled;
 	}
@@ -33,6 +38,7 @@ public class Area : MonoBehaviour {
 			Debug.Log("Entered A new area");
 			PopUpBackground.enabled = true;
 			currentTimeElapsed = 0;
+            
 		}
 	}
 }

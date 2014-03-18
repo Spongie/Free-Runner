@@ -18,25 +18,25 @@ public class RotationStick : MonoBehaviour {
 	}
 
 	void Update () {
+
+        rotating = false;
 		for(int i = 0; i < Input.touchCount; i++)
 		{
 			if(Input.touches[i].position.x < 1280)
 			{
-				if(rotationStick.GetScreenRect().Contains(Input.GetTouch(i).position))
+                Rect s = rotationStick.GetScreenRect();
+                s.Set(s.x - 100, s.y - 150, s.xMax + 200, s.yMax + 350);
+				if(s.Contains(Input.GetTouch(i).position))
 				{
 					Debug.Log("Started Rotating");
 					rotating = true;
-				}
-				else
-					rotating = false;
-				
-				if(rotating)
-				{
-					currentPos = Input.GetTouch(i).position;
-					Move();
+                    currentPos = Input.GetTouch(i).position;
 				}
 			}
 		}
+
+        if (rotating)
+            Move();
 	}
 
 	void Move()

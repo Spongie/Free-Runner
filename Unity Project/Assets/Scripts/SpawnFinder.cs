@@ -5,7 +5,6 @@ public class SpawnFinder : MonoBehaviour {
 
 	public Transform player;
 	SpawnPoint[] spawnPoints;
-	public float jumpPower;
 
 	void Start()
 	{
@@ -25,4 +24,23 @@ public class SpawnFinder : MonoBehaviour {
 		}
 		return Vector3.zero;
 	}
+
+    public Vector3 GetClosestSpawn(Vector3 startPos)
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        spawnPoints = new SpawnPoint[objs.Length];
+        Vector3 closest = Vector3.zero;
+        float minDistance = float.MaxValue;
+        for (int i = 0; i < objs.Length; i++)
+        {
+            spawnPoints[i] = objs[i].GetComponent<SpawnPoint>();
+            float distance = Mathf.Abs(Vector3.Distance(startPos, spawnPoints[i].transform.position));
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closest = spawnPoints[i].GetSpawnPosition();
+            }
+        }
+        return closest;
+    }
 }

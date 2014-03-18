@@ -6,7 +6,7 @@ public class Quest : MonoBehaviour {
     public string description;
 	public string targetName;
     bool completed;
-    //asd
+  
     void Start()
     {
         completed = false;
@@ -19,7 +19,7 @@ public class Quest : MonoBehaviour {
 
     public string CompletedText
     {
-        get { return "You hace succesfullly investigated " + targetName;}
+        get { return "Uppdag avklarat! Du har undersökt " + targetName;}
     }
 
 	void OnCollisionEnter(Collision collision)
@@ -27,8 +27,13 @@ public class Quest : MonoBehaviour {
 		if (collision.gameObject.tag == "Player")
 		{
             Debug.Log("Quest completed! Investigated " + targetName);
-                completed = true;
+            completed = true;
             Destroy(GetComponent<BoxCollider>());
+            Area area = new Area();
+            area.secondsToDisplay = 3.0f;
+            area.destroyAble = true;
+            area.text.text = "Quest completed! Investigated " + targetName;
+            Instantiate(area, collision.gameObject.transform.position, Quaternion.identity);
 		}
 	}
 }
