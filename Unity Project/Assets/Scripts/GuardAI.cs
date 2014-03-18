@@ -17,16 +17,19 @@ public class GuardAI : MonoBehaviour {
 	int pointWalkedPast;
 	public float walkSpeed;
 	AIStates state;
-	public NavMesh agent;
+	public NavMeshAgent agent;
 
 
 	// Use this for initialization
 	void Start () {
 		state = AIStates.Idle;
+		agent.SetDestination(new Vector3(-16f,7.010023f,53f));
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(!agent.hasPath)
+			agent.SetDestination(new Vector3(-8.763434f,7.010023f,-35.70995f));
 		if(IsAwareOfPlayer())
 		{
 			alarm.RaiseAwareness();
