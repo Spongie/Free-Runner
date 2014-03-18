@@ -19,25 +19,30 @@ public class Movment : MonoBehaviour {
 	}
 
 	void Update () {
+        bool touches = false;
+
 		for(int i = 0; i < Input.touchCount; i++)
 		{
-			if(Input.touches[i].position.x >0)
+            
+			if(Input.touches[i].position.x > 1280)
 			{
+                Rect s = movmentStick.GetScreenRect();
+                touches = true;
 				if(movmentStick.GetScreenRect().Contains(Input.GetTouch(i).position))
 				{
 					Debug.Log("Started Moving");
 					moving = true;
 				}
-				else
-					moving = false;
 				
 				if(moving)
 				{
-					curentPos = Input.GetTouch(i).position;
+					curentPos = Input.GetTouch(i).deltaPosition;
 					Move();
 				}
 			}
 		}
+        moving = touches;
+        
 	}
 	
 	void Move()

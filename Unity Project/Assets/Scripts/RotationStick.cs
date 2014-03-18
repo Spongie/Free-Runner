@@ -20,7 +20,7 @@ public class RotationStick : MonoBehaviour {
 	void Update () {
 		for(int i = 0; i < Input.touchCount; i++)
 		{
-			if(Input.touches[i].position.x <0)
+			if(Input.touches[i].position.x < 1280)
 			{
 				if(rotationStick.GetScreenRect().Contains(Input.GetTouch(i).position))
 				{

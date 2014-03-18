@@ -40,7 +40,7 @@ public class Alarm : MonoBehaviour {
 	{
 		percentOfAwareness = awareness/maxAwareness;
 		Rect alerter = alertBar.pixelInset;
-		alerter.height = (200*percentOfAwareness);
+		alerter.height = (maxAwareness*percentOfAwareness);
 		alertBar.pixelInset = alerter;
 	}
 }
