@@ -6,9 +6,11 @@ public class Area : MonoBehaviour {
 	public GUITexture PopUpBackground;
 	public float secondsToDisplay;
 	float currentTimeElapsed;
+    GUIText text;
 
 	void Start()
 	{
+        text = GetComponentInChildren<GUIText>();
 		currentTimeElapsed = 0;
 		PopUpBackground.enabled = false;
 	}
@@ -21,6 +23,7 @@ public class Area : MonoBehaviour {
 			if(currentTimeElapsed > secondsToDisplay)
 				PopUpBackground.enabled = false;
 		}
+        text.enabled = PopUpBackground.enabled;
 	}
 
 	public void OnTriggerEnter(Collider collision)
