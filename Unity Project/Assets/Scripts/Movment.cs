@@ -46,7 +46,7 @@ public class Movment : MonoBehaviour {
 		if(curentPos.y < startPos.y)
 			Ddirection *= -1;
 		direction = Ddirection.normalized;
-		playerObj.transform.Translate(direction*Time.deltaTime*speed, Space.World);
+        playerObj.transform.Translate(direction*Time.deltaTime*speed, Space.World);
 		
 	}
 }
