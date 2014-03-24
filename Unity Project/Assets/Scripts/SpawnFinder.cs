@@ -5,12 +5,14 @@ public class SpawnFinder : MonoBehaviour {
 
 	public Transform player;
 	SpawnPoint[] spawnPoints;
+    public GameObject gameSaver;
 
 	void Start()
 	{
 		player.position = GetStartSpawn();
 		Debug.Log ("New Position: " + player.position);
-        GetComponent<GameSaver>().LoadScene();
+        gameSaver.GetComponent<GameSaver>().LoadScene();
+        PlayerPrefs.DeleteAll();
 	}
 
 	public Vector3 GetStartSpawn()
@@ -43,11 +45,5 @@ public class SpawnFinder : MonoBehaviour {
             }
         }
         return closest;
-    }
-
-    void OnDisable()
-    {
-        Debug.Log("Saving stuff");
-        GetComponent<GameSaver>().SaveScene();
     }
 }
