@@ -10,6 +10,7 @@ public class SpawnFinder : MonoBehaviour {
 	{
 		player.position = GetStartSpawn();
 		Debug.Log ("New Position: " + player.position);
+        GetComponent<GameSaver>().LoadScene();
 	}
 
 	public Vector3 GetStartSpawn()
@@ -46,6 +47,7 @@ public class SpawnFinder : MonoBehaviour {
 
     void OnDisable()
     {
-        Debug.Log("Disabling player");
+        Debug.Log("Saving stuff");
+        GetComponent<GameSaver>().SaveScene();
     }
 }

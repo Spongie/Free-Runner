@@ -8,6 +8,7 @@ public class Map_Button : MonoBehaviour {
     public Texture selected;
     public Texture notselected;
     GameObject beskrivningsbox;
+    public string QuestTargetName;
 
     public bool Isselected 
     {
@@ -29,7 +30,7 @@ public class Map_Button : MonoBehaviour {
             DeselectAll();
             isselected = true;
             image.texture = selected;
-            beskrivningsbox.GetComponent<MapText>().SetText("hey");
+            beskrivningsbox.GetComponent<MapText>().SetText(PlayerPrefs.GetString(QuestTargetName));
         }
 	}
 
