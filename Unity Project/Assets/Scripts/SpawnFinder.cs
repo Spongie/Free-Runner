@@ -43,4 +43,9 @@ public class SpawnFinder : MonoBehaviour {
         }
         return closest;
     }
+
+    void OnDisable()
+    {
+        Debug.Log("Disabling player");
+    }
 }
