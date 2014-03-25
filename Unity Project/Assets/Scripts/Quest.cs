@@ -6,6 +6,7 @@ public class Quest : MonoBehaviour {
     public string description;
 	public string targetName;
     bool completed;
+    public GameObject area;
   
     void Start()
     {
@@ -29,11 +30,11 @@ public class Quest : MonoBehaviour {
             Debug.Log("Quest completed! Investigated " + targetName);
             completed = true;
             Destroy(GetComponent<BoxCollider>());
-            Area area = new Area();
-            area.secondsToDisplay = 3.0f;
-            area.destroyAble = true;
-            area.text.text = "Quest completed! Investigated " + targetName;
-            Instantiate(area, collision.gameObject.transform.position, Quaternion.identity);
+            area.GetComponent<Area>().secondsToDisplay = 3.0f;
+            area.GetComponent<Area>().destroyAble = true;
+            area.GetComponent<Area>().guiTexture.enabled = true;
+            area.GetComponent<Area>().text.text = "Quest completed! Investigated " + targetName;
+            Instantiate(area, new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
 		}
 	}
 }
