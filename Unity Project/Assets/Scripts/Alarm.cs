@@ -82,7 +82,7 @@ public class Alarm : MonoBehaviour {
     {
         if (awareness > 0)
         {
-            awareness -= (awarenessRate * 0.8f);
+            awareness -= (awarenessRate * 0.6f);
         }
     }
 
