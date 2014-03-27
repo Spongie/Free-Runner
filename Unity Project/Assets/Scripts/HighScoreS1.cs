@@ -9,9 +9,14 @@ public class HighScoreS1 : MonoBehaviour
 {
 	List<string> highScoreNames;
 	List<string> highScoreTimes;
+
+    string fileNameTime;
+    string fileNameName;
 	
 	public void AddScore(string name, int time)
 	{
+        fileNameName = Application.persistentDataPath + "/names.txt";
+        fileNameTime = Application.persistentDataPath + "/times.txt";
 		highScoreNames = LoadScoreNames();
 		highScoreTimes = LoadScoreTime();
 		highScoreNames.Add(name);
@@ -24,9 +29,9 @@ public class HighScoreS1 : MonoBehaviour
 	public List<string> LoadScoreNames()
 	{
 		List<string> rList = new List<string>();
-		if (File.Exists("names.txt"))
+		if (File.Exists(fileNameName))
 		{
-			string[] highScoreN = System.IO.File.ReadAllLines("names.txt");
+			string[] highScoreN = System.IO.File.ReadAllLines(fileNameName);
 			rList.AddRange(highScoreN);
 		}
 		return rList;
@@ -35,9 +40,9 @@ public class HighScoreS1 : MonoBehaviour
 	public List<string> LoadScoreTime()
 	{
 		List<string> rList = new List<string>();
-		if (File.Exists("times.txt"))
+		if (File.Exists(fileNameTime))
 		{
-			string[] highScoreT = System.IO.File.ReadAllLines("times.txt");
+            string[] highScoreT = System.IO.File.ReadAllLines(fileNameTime);
 			rList.AddRange(highScoreT);
 		}
 		return rList;
@@ -88,7 +93,7 @@ public class HighScoreS1 : MonoBehaviour
 
 	private void SaveToFile()
 	{
-		System.IO.File.WriteAllLines("times.txt", highScoreTimes.ToArray());
-		System.IO.File.WriteAllLines("names.txt", highScoreNames.ToArray());
+        System.IO.File.WriteAllLines(fileNameTime, highScoreTimes.ToArray());
+		System.IO.File.WriteAllLines(fileNameName, highScoreNames.ToArray());
 	}
 }
