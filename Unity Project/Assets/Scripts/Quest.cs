@@ -30,11 +30,14 @@ public class Quest : MonoBehaviour {
             Debug.Log("Quest completed! Investigated " + targetName);
             completed = true;
             Destroy(GetComponent<BoxCollider>());
-            area.GetComponent<Area>().secondsToDisplay = 3.0f;
-            area.GetComponent<Area>().destroyAble = true;
-            area.GetComponent<Area>().guiTexture.enabled = true;
-            area.GetComponent<Area>().text.text = "Quest completed! Investigated " + targetName;
-            Instantiate(area, new Vector3(0.5f, 0.5f, 0), Quaternion.identity);
+            
+            GameObject spawn = Instantiate(area, new Vector3(0.5f, 0.5f, -1), Quaternion.identity) as GameObject;
+            Area fromSpawn = spawn.GetComponent<Area>();
+            fromSpawn.secondsToDisplay = 3.0f;
+            fromSpawn.destroyAble = true;
+            fromSpawn.guiTexture.enabled = true;
+            fromSpawn.PopUpBackground.enabled = true;
+            fromSpawn.GetComponentInChildren<GUIText>().text = "Uppdrag avklarat " + targetName;
 		}
 	}
 }

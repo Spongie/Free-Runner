@@ -11,9 +11,7 @@ public class Area : MonoBehaviour {
 
 	void Start()
 	{
-        text = GetComponentInChildren<GUIText>();
 		currentTimeElapsed = 0;
-		PopUpBackground.enabled = false;
 	}
 
 	void Update()
@@ -36,6 +34,7 @@ public class Area : MonoBehaviour {
 		if (collision.gameObject.tag == "Player") 
 		{
 			Debug.Log("Entered A new area");
+            Debug.Log(destroyAble);
 			PopUpBackground.enabled = true;
 			currentTimeElapsed = 0;
             
