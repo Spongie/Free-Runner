@@ -22,14 +22,12 @@ public class GuardAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		state = AIStates.Idle;
-		agent.SetDestination(new Vector3(-16f,7.010023f,53f));
+		state = AIStates.Patroling;
+		agent.SetDestination(patrolPoints[0]);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(!agent.hasPath)
-			agent.SetDestination(new Vector3(-8.763434f,7.010023f,-35.70995f));
 		if(IsAwareOfPlayer())
 		{
 			alarm.isAwareOfPlayer = true;
@@ -54,11 +52,15 @@ public class GuardAI : MonoBehaviour {
 
 	public void Patroling()
 	{
-		if(Vector3.Distance(patrolPoints[pointWalkedPast], transform.position)<1)
+		if(!agent.hasPath)
+		{
 			if(pointWalkedPast == patrolPoints.Length - 1)
 				pointWalkedPast = 0;
 			else
 				pointWalkedPast++;
+			agent.SetDestination(patrolPoints[pointWalkedPast]);
+		}
+
 	}
 
 	public void WalkRandom()
