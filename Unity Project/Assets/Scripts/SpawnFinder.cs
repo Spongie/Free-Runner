@@ -9,7 +9,8 @@ public class SpawnFinder : MonoBehaviour {
 
 	void Start()
 	{
-		player.position = GetStartSpawn();
+        if(!PlayerPrefs.HasKey("xpos"))
+		    player.position = GetStartSpawn();
 		Debug.Log ("New Position: " + player.position);
         gameSaver.GetComponent<GameSaver>().LoadScene();
         PlayerPrefs.DeleteAll();
