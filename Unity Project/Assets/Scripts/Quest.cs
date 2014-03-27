@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class Quest : MonoBehaviour {
 
@@ -38,6 +39,12 @@ public class Quest : MonoBehaviour {
             fromSpawn.guiTexture.enabled = true;
             fromSpawn.PopUpBackground.enabled = true;
             fromSpawn.GetComponentInChildren<GUIText>().text = "Uppdrag avklarat " + targetName;
+            SaveCompleted();
 		}
 	}
+
+    public void SaveCompleted()
+    {
+        description = "Avklarad!";
+    }
 }

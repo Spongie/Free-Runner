@@ -12,13 +12,15 @@ public class GameSaver : MonoBehaviour {
 
     public void SaveScene()
     {
-        SavePlayer();  
+        SavePlayer();
+        PlayerPrefs.Save();
     }
 
     public void LoadScene()
     {
         if (PlayerPrefs.HasKey("xpos"))
             LoadPlayer();
+        LoadQuests();
     }
 
     private void LoadPlayer()
@@ -32,7 +34,21 @@ public class GameSaver : MonoBehaviour {
         SavePlayerPosition();
         SavePlayerRotation();
         SaveQuests();
-        PlayerPrefs.Save();
+        
+    }
+
+    private void LoadQuests()
+    {
+        GameObject[] quests = GameObject.FindGameObjectsWithTag("Quest");
+        foreach (GameObject item in quests)
+        {
+            Quest quest = item.GetComponent<Quest>();
+            if (PlayerPrefs.GetString(quest.targetName) == "Avklarad!")
+            {
+                Destroy(quest.GetComponent<BoxCollider>());
+                quest.SaveCompleted();
+            }
+        }
     }
     
     private void SaveQuests()
@@ -41,8 +57,11 @@ public class GameSaver : MonoBehaviour {
         foreach (GameObject item in quests)
         {
             Quest quest = item.GetComponent<Quest>();
-            PlayerPrefs.SetString(quest.targetName, quest.description);
-            Debug.Log("Saved quest with name: " + quest.targetName);
+            if (PlayerPrefs.GetString(quest.targetName) != "Avklarad!")
+            {
+                PlayerPrefs.SetString(quest.targetName, quest.description);
+                Debug.Log("Saved quest with name: " + quest.targetName);
+            }
         }
     }
 
@@ -60,5 +79,10 @@ public class GameSaver : MonoBehaviour {
         PlayerPrefs.SetFloat("yRot", player.eulerAngles.y);
         PlayerPrefs.SetFloat("zRot", player.eulerAngles.z);
         Debug.Log("Saving player rotation");
+    }
+
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteAll();
     }
 }

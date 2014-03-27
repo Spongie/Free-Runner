@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
 
 public class Map_Button : MonoBehaviour {
 
@@ -25,6 +26,11 @@ public class Map_Button : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
+        if (IsCompleted())
+        {
+            image.enabled = false;
+            
+        }
         if (image.GetScreenRect().Contains(Input.mousePosition) && Input.GetMouseButtonDown(0))
         {
             DeselectAll();
@@ -54,5 +60,11 @@ public class Map_Button : MonoBehaviour {
         image.texture = notselected;
     }
 
+    bool IsCompleted()
+    {
+        if (PlayerPrefs.HasKey(QuestTargetName + "C"))
+            return PlayerPrefs.GetString(QuestTargetName + "C") == "done";
+        return false;
+    }
 
 }

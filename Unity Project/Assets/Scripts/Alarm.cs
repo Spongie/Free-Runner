@@ -48,10 +48,11 @@ public class Alarm : MonoBehaviour {
 		else
 		{
 			Debug.Log("Not Seeing you");
-			awareness-=awarenessDecereaseRate;
+            LowerAwareness();
 		}
 
 		ChangeAlertBar();
+        isAwareOfPlayer = false;
 	}
 
     void ShowGameOver()
@@ -76,6 +77,14 @@ public class Alarm : MonoBehaviour {
 			awareness += awarenessRate;
 		}
 	}
+
+    public void LowerAwareness()
+    {
+        if (awareness > 0)
+        {
+            awareness -= (awarenessRate * 0.8f);
+        }
+    }
 
 	public bool IsDetected()
 	{
