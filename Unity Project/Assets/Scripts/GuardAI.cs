@@ -32,7 +32,7 @@ public class GuardAI : MonoBehaviour {
 			agent.SetDestination(new Vector3(-8.763434f,7.010023f,-35.70995f));
 		if(IsAwareOfPlayer())
 		{
-			alarm.RaiseAwareness();
+			alarm.isAwareOfPlayer = true;
 		}
 		switch(state)
 		{
