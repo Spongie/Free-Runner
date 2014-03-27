@@ -7,10 +7,12 @@ public class Alarm : MonoBehaviour {
 	public float percentOfAwareness;
 	public float detectRadius;
 	public float awarenessRate;
+	public float awarenessDecereaseRate;
 	public GUITexture alertBar;
     public GUITexture gameOverTexture;
     public float secondsToShowGameOver = 3f;
     float secondsElapsed;
+	public bool isAwareOfPlayer;
     bool showing;
 
     void Start()
@@ -38,6 +40,18 @@ public class Alarm : MonoBehaviour {
         }
         else if (IsDetected())
             ShowGameOver();
+		if(isAwareOfPlayer)
+		{
+			Debug.Log("Seeing you");
+			RaiseAwareness();
+		}
+		else
+		{
+			Debug.Log("Not Seeing you");
+			awareness-=awarenessDecereaseRate;
+		}
+
+		ChangeAlertBar();
 	}
 
     void ShowGameOver()
@@ -60,7 +74,6 @@ public class Alarm : MonoBehaviour {
 		if(maxAwareness>awareness)
 		{
 			awareness += awarenessRate;
-			ChangeAlertBar();
 		}
 	}
 
