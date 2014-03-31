@@ -16,7 +16,11 @@ public class MenuButton : MonoBehaviour
 	{
         if (image.GetScreenRect().Contains(Input.mousePosition) && Input.GetMouseButtonDown(0)) 
 		{
-			
+            if (scenename == "Exit")
+            {
+                PlayerPrefs.DeleteAll();
+                Application.Quit();
+            }
             GameSaver saver = GetComponent<GameSaver>();
             if (saver != null)
             {
