@@ -14,5 +14,6 @@ public class Jump : MonoBehaviour {
 	void DoJump()
 	{
 		playerBody.AddForce(Vector3.up * power);
+        GetComponent<AnimationStarter>().Jump();
 	}
 }

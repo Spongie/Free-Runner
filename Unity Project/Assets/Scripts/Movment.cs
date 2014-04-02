@@ -9,11 +9,12 @@ public class Movment : MonoBehaviour {
 	Vector3 direction;
 	public GUITexture movmentStick;
 	bool moving;
-	GameObject playerObj;
+	public GameObject playerObj;
+    AnimationStarter playerAnimation;
 
 	void Start()
 	{
-		playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerAnimation = playerObj.GetComponent<AnimationStarter>();
 		moving = false;
 		startPos = movmentStick.GetScreenRect().center;
 	}
@@ -38,13 +39,20 @@ public class Movment : MonoBehaviour {
 		}
         if (moving)
             Move();
+        else
+            playerAnimation.Stop();
 	}
 	
 	void Move()
 	{
 		Vector3 Ddirection = playerObj.transform.forward;
-		if(curentPos.y < startPos.y)
-			Ddirection *= -1;
+        if (curentPos.y < startPos.y)
+        {
+            Ddirection *= -1;
+            playerAnimation.Backwards();
+        }
+        else
+            playerAnimation.Forward();
 		direction = Ddirection.normalized;
         playerObj.transform.Translate(direction*Time.deltaTime*speed, Space.World);
 		

@@ -5,7 +5,7 @@ public class RotationStick : MonoBehaviour {
 
 	public GUITexture rotationStick;
 
-	GameObject player;
+	public GameObject player;
 	Vector2 startPos;
 	Vector2 currentPos;
 	bool rotating;
@@ -14,7 +14,6 @@ public class RotationStick : MonoBehaviour {
 	void Start () {
 		rotating = false;
 		startPos = rotationStick.GetScreenRect().center;
-		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	void Update () {

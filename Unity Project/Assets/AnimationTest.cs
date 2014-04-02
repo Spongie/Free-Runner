@@ -17,8 +17,18 @@ public class AnimationTest : MonoBehaviour {
             animator.SetInteger("Speed", -1);
         else
             animator.SetInteger("Speed", 0);
-        
 
-        Debug.Log(animator.speed);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("Jump");
+            GetComponent<Rigidbody>().AddForce(Vector3.up * 1000);
+        }
 	}
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("LaaAANDED");
+        if (collision.gameObject.tag == "Ground")
+            animator.SetTrigger("Land");
+    }
 }
