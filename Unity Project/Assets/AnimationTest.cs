@@ -12,7 +12,10 @@ public class AnimationTest : MonoBehaviour {
     void Update () {
 
         if (Input.GetKey(KeyCode.W))
+        {
             animator.SetInteger("Speed", 1);
+            transform.Translate(transform.forward * 10);
+        }
         else if (Input.GetKey(KeyCode.S))
             animator.SetInteger("Speed", -1);
         else

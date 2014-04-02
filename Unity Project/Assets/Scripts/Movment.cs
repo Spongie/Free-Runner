@@ -25,7 +25,7 @@ public class Movment : MonoBehaviour {
         for(int i = 0; i < Input.touchCount; i++)
 		{
             
-			if(Input.touches[i].position.x > 1280)
+			if(Input.touches[i].position.x < 1280)
 			{
                 Rect s = movmentStick.GetScreenRect();
                 s.Set(s.x - 100, s.y - 150, s.xMax + 200, s.yMax + 350);
@@ -41,6 +41,12 @@ public class Movment : MonoBehaviour {
             Move();
         else
             playerAnimation.Stop();
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Vector3 Ddirection = playerObj.transform.forward;
+            Debug.Log("Player forward: " + Ddirection);
+        }
 	}
 	
 	void Move()
