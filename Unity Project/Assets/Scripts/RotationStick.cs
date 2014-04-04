@@ -24,7 +24,7 @@ public class RotationStick : MonoBehaviour {
 			if(Input.touches[i].position.x > 1280)
 			{
                 Rect s = rotationStick.GetScreenRect();
-                s.Set(s.x - 100, s.y - 50, s.xMax + 200, s.yMax + 150);
+                s.Set(s.x - 100, s.y, s.xMax + 200, s.yMax);
 				if(s.Contains(Input.GetTouch(i).position))
 				{
 					Debug.Log("Started Rotating");

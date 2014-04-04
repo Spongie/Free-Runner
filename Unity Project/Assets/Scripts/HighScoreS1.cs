@@ -12,6 +12,22 @@ public class HighScoreS1 : MonoBehaviour
 
     string fileNameTime;
     string fileNameName;
+
+    public string[] GetPrintList()
+    {
+        List<String> scores = new List<string>();
+        highScoreNames = LoadScoreNames();
+        highScoreTimes = LoadScoreTime();
+
+        scores.Add(String.Format("{0, -20} {1, 20}\n", "Name", "Time"));
+
+        for (int i = 0; i < highScoreNames.Count; i++)
+        {
+            scores.Add(String.Format("{0, -20} {1, 20}\n", highScoreNames[i], highScoreTimes[i]));
+        }
+
+        return scores.ToArray();
+    }
 	
 	public void AddScore(string name, int time)
 	{
