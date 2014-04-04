@@ -25,7 +25,7 @@ public class Alarm : MonoBehaviour {
     void InitGameOverTexture()
     {
         gameOverTexture.enabled = false;
-        gameOverTexture.pixelInset = new Rect(0, 0, 0, 0);
+       // gameOverTexture.pixelInset = new Rect(0, 0, 0, 0);
         gameOverTexture.transform.position = new Vector3(0.5f, 0.5f, gameOverTexture.transform.position.z);
         gameOverTexture.transform.localScale = new Vector3(1f, 1f, gameOverTexture.transform.localScale.z);
     }
@@ -68,6 +68,7 @@ public class Alarm : MonoBehaviour {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = player.GetComponent<SpawnFinder>().GetClosestSpawn(player.transform.position);
         showing = false;
+        gameOverTexture.enabled = false;
     }
 
 	public void RaiseAwareness()
