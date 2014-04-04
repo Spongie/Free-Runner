@@ -21,7 +21,7 @@ public class JumpStick : MonoBehaviour {
     void Jump()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        if (Mathf.Abs(playerObj.GetComponent<Rigidbody>().velocity.y) > 0.05f)
+        if (Mathf.Abs(playerObj.GetComponent<Rigidbody>().velocity.y) > 0.02f)
             return;
         playerObj.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpPower);
         playerObj.GetComponent<AnimationStarter>().Jump();
