@@ -21,11 +21,14 @@ public class MenuButton : MonoBehaviour
                 PlayerPrefs.DeleteAll();
                 Application.Quit();
             }
+            
             GameSaver saver = GetComponent<GameSaver>();
             if (saver != null)
             {
                 saver.SaveScene();
             }
+            if (scenename == "menu_main")
+                PlayerPrefs.DeleteAll();
             Application.LoadLevel(scenename);
 		}
 	}
