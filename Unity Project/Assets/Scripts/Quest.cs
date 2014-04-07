@@ -8,7 +8,9 @@ public class Quest : MonoBehaviour {
 	public string targetName;
     bool completed;
     public GameObject area;
-  
+
+    public Texture popupTexture;
+
     void Start()
     {
         completed = false;
@@ -35,6 +37,7 @@ public class Quest : MonoBehaviour {
             GameObject spawn = Instantiate(area, new Vector3(0.5f, 0.5f, -1), Quaternion.identity) as GameObject;
             Area fromSpawn = spawn.GetComponent<Area>();
             fromSpawn.secondsToDisplay = 3.0f;
+            fromSpawn.guiTexture.texture = popupTexture;
             fromSpawn.destroyAble = true;
             fromSpawn.guiTexture.enabled = true;
             fromSpawn.PopUpBackground.enabled = true;

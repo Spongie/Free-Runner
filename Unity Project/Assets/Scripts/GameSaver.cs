@@ -80,9 +80,4 @@ public class GameSaver : MonoBehaviour {
         PlayerPrefs.SetFloat("zRot", player.eulerAngles.z);
         Debug.Log("Saving player rotation");
     }
-
-    void OnApplicationQuit()
-    {
-        PlayerPrefs.DeleteAll();
-    }
 }
