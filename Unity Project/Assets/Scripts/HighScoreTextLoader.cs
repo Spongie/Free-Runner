@@ -9,7 +9,7 @@ public class HighScoreTextLoader : MonoBehaviour
 
     void Start() {
         string[] printList = highScores.GetPrintList();
-        text.text = "";
+        text.text = "Name   -  Time\n";
         for (int i = 0; i < printList.Length; i++)
         {
             text.text += printList[i];
