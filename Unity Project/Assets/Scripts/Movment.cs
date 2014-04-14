@@ -41,12 +41,6 @@ public class Movment : MonoBehaviour {
             Move();
         else
             playerAnimation.Stop();
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Vector3 Ddirection = playerObj.transform.forward;
-            Debug.Log("Player forward: " + Ddirection);
-        }
 	}
 	
 	void Move()
