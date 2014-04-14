@@ -6,8 +6,3 @@
 *.csproj
 *.unityproj
 *.sln
-
-# include meta files
-!*.*.meta
-*.meta
-*.meta
