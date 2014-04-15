@@ -8,6 +8,7 @@ public class Quest : MonoBehaviour {
 	public string targetName;
     bool completed;
     public GameObject area;
+    public bool isMain;
 
     public Texture popupTexture;
 

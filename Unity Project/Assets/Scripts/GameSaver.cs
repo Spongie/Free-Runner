@@ -13,6 +13,7 @@ public class GameSaver : MonoBehaviour {
     public void SaveScene()
     {
         SavePlayer();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<GameTracker>().SaveState();
         PlayerPrefs.Save();
     }
 
@@ -21,6 +22,7 @@ public class GameSaver : MonoBehaviour {
         if (PlayerPrefs.HasKey("xpos"))
             LoadPlayer();
         LoadQuests();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<GameTracker>().LoadState();
     }
 
     private void LoadPlayer()

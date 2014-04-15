@@ -3,16 +3,16 @@ using System.Collections;
 
 public class HighScoreTextLoader : MonoBehaviour
 {
-
     public HighScoreS1 highScores;
     public GUIText text;
 
-    void Start() {
+    public void Load()
+    {
         string[] printList = highScores.GetPrintList();
-        text.text = "Name   -  Time\n";
+        text.text = "";
         for (int i = 0; i < printList.Length; i++)
         {
             text.text += printList[i];
         }
-	}
+    }
 }

@@ -13,6 +13,15 @@ public class HighScoreS1 : MonoBehaviour
     string fileNameTime;
     string fileNameName;
 
+    void Start()
+    {
+        fileNameName = Application.persistentDataPath + "/names.txt";
+        fileNameTime = Application.persistentDataPath + "/times.txt";
+        LoadScoreNames();
+        LoadScoreTime();
+        GetComponent<HighScoreTextLoader>().Load();
+    }
+
     public string[] GetPrintList()
     {
         List<String> scores = new List<string>();
@@ -31,6 +40,7 @@ public class HighScoreS1 : MonoBehaviour
 	
 	public void AddScore(string name, int time)
 	{
+        Debug.Log("Adding score");
         fileNameName = Application.persistentDataPath + "/names.txt";
         fileNameTime = Application.persistentDataPath + "/times.txt";
 		highScoreNames = LoadScoreNames();
@@ -55,12 +65,17 @@ public class HighScoreS1 : MonoBehaviour
 
 	public List<string> LoadScoreTime()
 	{
+        Debug.Log("Loading scores");
+        Debug.Log("Looking for file at: " + fileNameTime);
 		List<string> rList = new List<string>();
-		if (File.Exists(fileNameTime))
-		{
+        if (File.Exists(fileNameTime))
+        {
             string[] highScoreT = System.IO.File.ReadAllLines(fileNameTime);
-			rList.AddRange(highScoreT);
-		}
+            rList.AddRange(highScoreT);
+        }
+        else
+            Debug.Log("Error: File not found");
+        Debug.Log("Found " + rList.Count + " nr of scores");
 		return rList;
 	}
 
@@ -72,7 +87,7 @@ public class HighScoreS1 : MonoBehaviour
 			int changes = 0;
 			for(int i = 0; i < highScoreTimes.Count - 1; i++)
 			{
-				if(int.Parse(highScoreTimes[i]) < int.Parse(highScoreTimes[i+1]))
+				if(int.Parse(highScoreTimes[i]) > int.Parse(highScoreTimes[i+1]))
 				{
 					Swap (i);
 					changes++;
@@ -98,6 +113,7 @@ public class HighScoreS1 : MonoBehaviour
 
 	private void TrimToTop10()
 	{
+        Debug.Log("Nr of Scores: " + highScoreNames.Count);
 		if (highScoreNames.Count <= 10)
 			return;
 		while (highScoreNames.Count != 10)
@@ -109,6 +125,8 @@ public class HighScoreS1 : MonoBehaviour
 
 	private void SaveToFile()
 	{
+        Debug.Log("Saving highscores");
+        Debug.Log("FilePath: " + fileNameName);
         System.IO.File.WriteAllLines(fileNameTime, highScoreTimes.ToArray());
 		System.IO.File.WriteAllLines(fileNameName, highScoreNames.ToArray());
 	}
