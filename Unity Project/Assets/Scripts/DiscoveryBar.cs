@@ -3,13 +3,32 @@ using System.Collections;
 
 public class DiscoveryBar : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public float maxAwareness;
+    public float awareness;
+    public float percentOfAwareness;
+    public float awarenessRate;
+    public GUITexture alertBar;
+
+    void Start()
+    {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Quest");
+        maxAwareness = objs.Length;
+    }
+
+    public void RaiseAwareness()
+    {
+        if (maxAwareness > awareness)
+        {
+            awareness += awarenessRate;
+            ChangeAlertBar();
+        }
+    }
+
+    public void ChangeAlertBar()
+    {
+        percentOfAwareness = awareness / maxAwareness;
+        Rect alerter = alertBar.pixelInset;
+        alerter.height = (maxAwareness * percentOfAwareness);
+        alertBar.pixelInset = alerter;
+    }
 }

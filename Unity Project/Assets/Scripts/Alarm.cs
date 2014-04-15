@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Alarm : MonoBehaviour {
+
 	public float maxAwareness;
 	public float awareness;
 	public float percentOfAwareness;

@@ -49,5 +49,6 @@ public class Quest : MonoBehaviour {
     public void SaveCompleted()
     {
         description = "Avklarad!";
+        GameObject.FindGameObjectWithTag("Discovery").GetComponent<DiscoveryBar>().RaiseAwareness();
     }
 }
