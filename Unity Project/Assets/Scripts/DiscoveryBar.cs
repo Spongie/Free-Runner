@@ -8,11 +8,13 @@ public class DiscoveryBar : MonoBehaviour {
     public float percentOfAwareness;
     public float awarenessRate;
     public GUITexture alertBar;
+    float maxHeight;
 
     void Start()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Quest");
         maxAwareness = objs.Length;
+        maxHeight = 1000;
     }
 
     public void RaiseAwareness()
@@ -28,7 +30,7 @@ public class DiscoveryBar : MonoBehaviour {
     {
         percentOfAwareness = awareness / maxAwareness;
         Rect alerter = alertBar.pixelInset;
-        alerter.height = (maxAwareness * percentOfAwareness);
+        alerter.height = (maxHeight * percentOfAwareness);
         alertBar.pixelInset = alerter;
     }
 }
