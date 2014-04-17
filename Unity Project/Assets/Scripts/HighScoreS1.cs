@@ -19,7 +19,9 @@ public class HighScoreS1 : MonoBehaviour
         fileNameTime = Application.persistentDataPath + "/times.txt";
         LoadScoreNames();
         LoadScoreTime();
-        GetComponent<HighScoreTextLoader>().Load();
+        HighScoreTextLoader textLoader = GetComponent<HighScoreTextLoader>();
+        if (textLoader != null)
+            textLoader.Load();
     }
 
     public string[] GetPrintList()

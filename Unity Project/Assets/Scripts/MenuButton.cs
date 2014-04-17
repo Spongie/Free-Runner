@@ -25,7 +25,8 @@ public class MenuButton : MonoBehaviour
             GameSaver saver = GetComponent<GameSaver>();
             if (saver != null)
             {
-                saver.SaveScene();
+                if(saver.player != null)
+                    saver.SaveScene();
             }
             if (scenename == "menu_main")
                 PlayerPrefs.DeleteAll();

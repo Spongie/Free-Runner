@@ -6,6 +6,7 @@ public class GameTracker : MonoBehaviour {
     float secondsElapsed;
     float hoursElapsed;
     float minuetsElapsed;
+    public bool active = false;
 
 	void Start () {
         secondsElapsed = 0;
@@ -14,15 +15,18 @@ public class GameTracker : MonoBehaviour {
 	}
 	
 	void Update () {
-        AddTime();
-        if (CheckGameCompleted())
+        if (active)
         {
-            Debug.Log("SPPPPPelet avklarat, Time: " + GetTimeString());
-            GetComponent<HighScoreS1>().AddScore("MALMÖ", (int)secondsElapsed);
-            PlayerPrefs.DeleteAll();
-            PlayerPrefs.SetString("winner", "MALMÖ");
-            PlayerPrefs.SetString("time", GetTimeString());
-            Application.LoadLevel("menu_finnish");
+            AddTime();
+            if (CheckGameCompleted())
+            {
+                Debug.Log("SPELET KLART");
+                GetComponent<HighScoreS1>().AddScore("MALMÖ", (int)secondsElapsed);
+                PlayerPrefs.DeleteAll();
+                PlayerPrefs.SetString("winner", "MALMÖ");
+                PlayerPrefs.SetString("time", GetTimeString());
+                Application.LoadLevel("menu_finnish");
+            }
         }
 	}
 
@@ -66,6 +70,7 @@ public class GameTracker : MonoBehaviour {
 
     public void SaveState()
     {
+        Debug.Log("Saving state at: " + secondsElapsed);
         PlayerPrefs.SetFloat("sec", secondsElapsed);
         PlayerPrefs.SetFloat("min", minuetsElapsed);
         PlayerPrefs.SetFloat("hr", hoursElapsed);
@@ -78,5 +83,6 @@ public class GameTracker : MonoBehaviour {
         secondsElapsed = PlayerPrefs.GetFloat("sec");
         minuetsElapsed = PlayerPrefs.GetFloat("min");
         hoursElapsed = PlayerPrefs.GetFloat("hr");
+        Debug.Log("Loaded state at: " + secondsElapsed);
     }
 }

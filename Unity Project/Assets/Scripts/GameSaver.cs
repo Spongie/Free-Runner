@@ -13,16 +13,17 @@ public class GameSaver : MonoBehaviour {
     public void SaveScene()
     {
         SavePlayer();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<GameTracker>().SaveState();
+        GetComponent<GameTracker>().SaveState();
         PlayerPrefs.Save();
     }
 
     public void LoadScene()
     {
+        Debug.Log("Loading scene");
         if (PlayerPrefs.HasKey("xpos"))
             LoadPlayer();
         LoadQuests();
-        GameObject.FindGameObjectWithTag("Player").GetComponent<GameTracker>().LoadState();
+        GetComponent<GameTracker>().LoadState();
     }
 
     private void LoadPlayer()
