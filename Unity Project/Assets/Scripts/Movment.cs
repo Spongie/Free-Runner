@@ -43,8 +43,7 @@ public class Movment : MonoBehaviour {
             Move();
         else
             playerAnimation.Stop();
-        if (character.isGrounded)
-            Debug.Log("MAKR");
+        character.SimpleMove(Vector3.zero);
 	}
 	
 	void Move()

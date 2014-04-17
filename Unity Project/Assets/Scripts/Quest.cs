@@ -27,7 +27,7 @@ public class Quest : MonoBehaviour {
         get { return "Uppdag avklarat! Du har undersökt " + targetName;}
     }
 
-	void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
 	{
 		if (collision.gameObject.tag == "Player")
 		{
