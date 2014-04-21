@@ -52,7 +52,7 @@ public class JumpStick : MonoBehaviour {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         if (Mathf.Abs(playerObj.GetComponent<CharacterController>().velocity.y) > 0.02f)
             return;
-        currentPower = jumpPower - 193;
+        currentPower = jumpPower;
         checkGrounded = false;
         playerObj.GetComponent<AnimationStarter>().Jump();
     }
@@ -61,7 +61,7 @@ public class JumpStick : MonoBehaviour {
     {
         if (playerObj.GetComponent<CharacterController>().isGrounded && checkGrounded)
             currentPower = -1;
-        playerObj.GetComponent<CharacterMover>().AddMovement(Vector3.up * currentPower * Time.deltaTime);
+        playerObj.GetComponent<CharacterController>().Move(Vector3.up * currentPower * Time.deltaTime);
         currentPower -= Time.deltaTime * 9.82f / 2;
     }
 }

@@ -12,12 +12,15 @@ public class CharacterMover : MonoBehaviour {
 
     public void AddMovement(Vector3 movement)
     {
+        Debug.Log("Original. " + totalMove);
         totalMove += movement;
+        Debug.Log("Af´ter: " + totalMove);
     }
 
 	void Update () {
         totalMove = Vector3.zero;
-        AddMovement(new Vector3(0, 0.92f, 0));
+        AddMovement(new Vector3(0, -9.92f, 0));
+        Debug.Log("moving with power: " + totalMove);
         controller.Move(totalMove * Time.deltaTime);
 	}
 }
