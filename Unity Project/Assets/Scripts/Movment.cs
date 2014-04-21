@@ -11,14 +11,14 @@ public class Movment : MonoBehaviour {
 	bool moving;
 	public GameObject playerObj;
     AnimationStarter playerAnimation;
-    CharacterController character;
+    CharacterMover character;
 
 	void Start()
 	{
         playerAnimation = playerObj.GetComponent<AnimationStarter>();
 		moving = false;
 		startPos = movmentStick.GetScreenRect().center;
-        character = playerObj.GetComponent<CharacterController>();
+        character = playerObj.GetComponent<CharacterMover>();
 	}
 
 	void Update () {
@@ -43,7 +43,6 @@ public class Movment : MonoBehaviour {
             Move();
         else
             playerAnimation.Stop();
-        character.SimpleMove(Vector3.zero);
 	}
 	
 	void Move()
@@ -57,7 +56,7 @@ public class Movment : MonoBehaviour {
         else
             playerAnimation.Forward();
 		direction = Ddirection.normalized;
-        character.SimpleMove(direction * speed);
+        character.AddMovement(direction * speed);
         //playerObj.transform.Translate(direction*Time.deltaTime*speed, Space.World);
 		
 	}

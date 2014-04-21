@@ -61,7 +61,7 @@ public class JumpStick : MonoBehaviour {
     {
         if (playerObj.GetComponent<CharacterController>().isGrounded && checkGrounded)
             currentPower = -1;
-        playerObj.GetComponent<CharacterController>().Move(Vector3.up * currentPower * Time.deltaTime);
+        playerObj.GetComponent<CharacterMover>().AddMovement(Vector3.up * currentPower * Time.deltaTime);
         currentPower -= Time.deltaTime * 9.82f / 2;
     }
 }

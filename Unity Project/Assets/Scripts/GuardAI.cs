@@ -10,20 +10,24 @@ public enum AIStates
 }
 
 public class GuardAI : MonoBehaviour {
+
 	public float detectRadius;
 	public GameObject player;
 	public Alarm alarm;
 	public Vector3[] patrolPoints;
 	int pointWalkedPast;
 	public float walkSpeed;
-	AIStates state;
+	public AIStates state;
 	public NavMeshAgent agent;
-
+    public Animator animation;
+    public bool randomized;
 
 	// Use this for initialization
 	void Start () {
-		state = AIStates.Patroling;
-		agent.SetDestination(patrolPoints[0]);
+        agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length+1)]);
+        animation = GetComponentInChildren<Animator>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        alarm = GameObject.FindGameObjectWithTag("alertbar").GetComponent<Alarm>();
 	}
 	
 	// Update is called once per frame
@@ -35,8 +39,14 @@ public class GuardAI : MonoBehaviour {
 		switch(state)
 		{
 		case AIStates.Patroling:
+            agent.enabled = true;
 			Patroling();
+            animation.SetBool("Patrolling", true);
 			break;
+        case AIStates.Idle:
+            agent.enabled = false;
+            animation.SetBool("Patrolling", false);
+            break;
 
 		}
 	}
@@ -50,16 +60,26 @@ public class GuardAI : MonoBehaviour {
 			return false;
 	}
 
+    private void SetStart()
+    {
+        state = AIStates.Patroling;
+        agent.SetDestination(patrolPoints[0]);
+    }
+
 	public void Patroling()
 	{
-		if(!agent.hasPath)
-		{
-			if(pointWalkedPast == patrolPoints.Length - 1)
-				pointWalkedPast = 0;
-			else
-				pointWalkedPast++;
-			agent.SetDestination(patrolPoints[pointWalkedPast]);
-		}
+        if (!agent.hasPath)
+        {
+            if (pointWalkedPast == patrolPoints.Length - 1)
+                pointWalkedPast = 0;
+            else
+                pointWalkedPast++;
+            if (!randomized)
+                agent.SetDestination(patrolPoints[pointWalkedPast]);
+            else
+                agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length + 1)]);
+            
+        }
 
 	}
 
