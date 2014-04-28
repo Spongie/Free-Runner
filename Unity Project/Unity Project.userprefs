@@ -1,15 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameSaver.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Jump.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameSaver.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SpawnFinder.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Jump.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GuardAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Movment.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Alarm.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Quest.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\RotationStick.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Movment.cs" Line="57" Column="13" />
+      <File FileName="Assets\Scripts\JumpStick.cs" Line="44" Column="6" />
+      <File FileName="Assets\Scripts\Jump.cs" Line="21" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
