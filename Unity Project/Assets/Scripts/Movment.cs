@@ -39,7 +39,7 @@ public class Movment : MonoBehaviour {
 				}
 			}
 		}
-        if (moving)
+        if (moving || Input.GetKey(KeyCode.W))
             Move();
         else
             playerAnimation.Stop();
@@ -57,7 +57,7 @@ public class Movment : MonoBehaviour {
         else
             playerAnimation.Forward();
 		direction = Ddirection.normalized;
-        character.SimpleMove(direction * speed);
+        character.Move((direction * speed)*Time.deltaTime);
         //playerObj.transform.Translate(direction*Time.deltaTime*speed, Space.World);
 		
 	}
