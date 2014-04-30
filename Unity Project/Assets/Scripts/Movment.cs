@@ -39,7 +39,7 @@ public class Movment : MonoBehaviour {
 				}
 			}
 		}
-        if (moving || Input.GetKey(KeyCode.W))
+        if (moving || Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.S))
             Move();
         else
             playerAnimation.Stop();
@@ -49,12 +49,12 @@ public class Movment : MonoBehaviour {
 	void Move()
 	{
 		Vector3 Ddirection = playerObj.transform.forward;
-        if (curentPos.y < startPos.y)
+		if (curentPos.y < startPos.y|| Input.GetKey(KeyCode.S))
         {
             Ddirection *= -1;
             playerAnimation.Backwards();
         }
-        else
+		else if(Input.GetKey(KeyCode.W))
             playerAnimation.Forward();
 		direction = Ddirection.normalized;
         character.Move((direction * speed)*Time.deltaTime);
