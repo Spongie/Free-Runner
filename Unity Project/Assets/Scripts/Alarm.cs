@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Alarm : MonoBehaviour {
 
+	GameObject menyknapp;
 	public float maxAwareness;
 	public float awareness;
 	public float percentOfAwareness;
@@ -40,7 +41,12 @@ public class Alarm : MonoBehaviour {
                 GameOver();
         }
         else if (IsDetected())
+		{
             ShowGameOver();
+			menyknapp = GameObject.FindGameObjectWithTag("meny"); 
+			menyknapp.GetComponent<GUITexture>().enabled = false;
+		}
+
 		if(isAwareOfPlayer)
 		{
 			Debug.Log("Seeing you");

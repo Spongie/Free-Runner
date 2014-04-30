@@ -60,12 +60,6 @@ public class GuardAI : MonoBehaviour {
 			return false;
 	}
 
-    private void SetStart()
-    {
-        state = AIStates.Patroling;
-        agent.SetDestination(patrolPoints[0].position);
-    }
-
 	public void Patroling()
 	{
         if (!agent.hasPath)
