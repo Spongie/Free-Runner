@@ -14,6 +14,7 @@ public class Alarm : MonoBehaviour {
     public GUITexture gameOverTexture;
     public float secondsToShowGameOver = 3f;
     float secondsElapsed;
+    public GameObject prefab;
 	public bool isAwareOfPlayer;
     bool showing;
 
@@ -67,15 +68,19 @@ public class Alarm : MonoBehaviour {
         secondsElapsed = 0.0f;
         showing = true;
         gameOverTexture.enabled = true;
+        GameOverStat.GameOver = true ;
+        Destroy(GameObject.FindGameObjectWithTag("meny"));
     }
 
     void GameOver()
     {
+        GameOverStat.GameOver = false;
         awareness = 0.0f;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.transform.position = player.GetComponent<SpawnFinder>().GetClosestSpawn(player.transform.position);
         showing = false;
         gameOverTexture.enabled = false;
+        Instantiate(prefab);
     }
 
 	public void RaiseAwareness()

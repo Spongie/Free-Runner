@@ -8,5 +8,7 @@ public class LandChecker : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Ground")
             GetComponent<AnimationStarter>().Land();
+        //if(GetComponent<CharacterController>().isGrounded)
+        //    GetComponent<AnimationStarter>().Land();
     }
 }

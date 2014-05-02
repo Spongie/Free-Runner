@@ -22,39 +22,41 @@ public class Movment : MonoBehaviour {
 	}
 
 	void Update () {
+        if (!GameOverStat.GameOver)
+        {
+            moving = false;
+            for (int i = 0; i < Input.touchCount; i++)
+            {
 
-        moving = false;
-        for(int i = 0; i < Input.touchCount; i++)
-		{
-            
-			if(Input.touches[i].position.x < 1280)
-			{
-                Rect s = movmentStick.GetScreenRect();
-                s.Set(s.x - 100, s.y - 150, s.xMax + 200, s.yMax + 350);
-				if(s.Contains(Input.GetTouch(i).position))
-				{
-					Debug.Log("Started Moving");
-					moving = true;
-                    curentPos = Input.GetTouch(i).position;
-				}
-			}
-		}
-        if (moving || Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.S))
-            Move();
-        else
-            playerAnimation.Stop();
-        character.SimpleMove(Vector3.zero);
+                if (Input.touches[i].position.x < 1280)
+                {
+                    Rect s = movmentStick.GetScreenRect();
+                    s.Set(s.x - 100, s.y - 150, s.xMax + 200, s.yMax + 350);
+                    if (s.Contains(Input.GetTouch(i).position))
+                    {
+                        Debug.Log("Started Moving");
+                        moving = true;
+                        curentPos = Input.GetTouch(i).position;
+                    }
+                }
+            }
+            if (moving || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W))
+                Move();
+            else
+                playerAnimation.Stop();
+            character.SimpleMove(Vector3.zero);
+        }
 	}
 	
 	void Move()
 	{
 		Vector3 Ddirection = playerObj.transform.forward;
-		if (curentPos.y < startPos.y|| Input.GetKey(KeyCode.S))
+		if (curentPos.y < startPos.y)
         {
             Ddirection *= -1;
             playerAnimation.Backwards();
         }
-		else if(Input.GetKey(KeyCode.W))
+		else
             playerAnimation.Forward();
 		direction = Ddirection.normalized;
         character.Move((direction * speed)*Time.deltaTime);

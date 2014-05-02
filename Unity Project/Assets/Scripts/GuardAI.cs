@@ -32,23 +32,26 @@ public class GuardAI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(IsAwareOfPlayer())
-		{
-			alarm.isAwareOfPlayer = true;
-		}
-		switch(state)
-		{
-		case AIStates.Patroling:
-            agent.enabled = true;
-			Patroling();
-            animation.SetBool("Patrolling", true);
-			break;
-        case AIStates.Idle:
-            agent.enabled = false;
-            animation.SetBool("Patrolling", false);
-            break;
+        if (!GameOverStat.GameOver)
+        {
+            if (IsAwareOfPlayer())
+            {
+                alarm.isAwareOfPlayer = true;
+            }
+            switch (state)
+            {
+                case AIStates.Patroling:
+                    agent.enabled = true;
+                    Patroling();
+                    animation.SetBool("Patrolling", true);
+                    break;
+                case AIStates.Idle:
+                    agent.enabled = false;
+                    animation.SetBool("Patrolling", false);
+                    break;
 
-		}
+            }
+        }
 	}
 
 	public bool IsAwareOfPlayer()
