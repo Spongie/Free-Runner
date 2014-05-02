@@ -3,12 +3,13 @@ using System.Collections;
 
 public class LandChecker : MonoBehaviour {
 
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="collision"></param>
     void OnControllerColliderHit(ControllerColliderHit collision)
     {
-        if (collision.gameObject.tag == "Ground")
-            GetComponent<AnimationStarter>().Land();
-        //if(GetComponent<CharacterController>().isGrounded)
-        //    GetComponent<AnimationStarter>().Land();
+        if(GetComponent<CharacterController>().isGrounded)
+           GetComponent<AnimationStarter>().Land();
     }
 }
