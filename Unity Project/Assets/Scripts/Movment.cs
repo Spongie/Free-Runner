@@ -51,7 +51,7 @@ public class Movment : MonoBehaviour {
 	void Move()
 	{
 		Vector3 Ddirection = playerObj.transform.forward;
-		if (curentPos.y < startPos.y)
+		if (curentPos.y < startPos.y || Input.GetKey (KeyCode.S))
         {
             Ddirection *= -1;
             playerAnimation.Backwards();

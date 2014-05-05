@@ -24,7 +24,8 @@ public class GuardAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length+1)].position);
+	if(patrolPoints.Length>0 && patrolPoints[0] != null)
+        	agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length)].position);
         animation = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         alarm = GameObject.FindGameObjectWithTag("alertbar").GetComponent<Alarm>();
@@ -38,6 +39,8 @@ public class GuardAI : MonoBehaviour {
             {
                 alarm.isAwareOfPlayer = true;
             }
+			if(animation != null)
+			{
             switch (state)
             {
                 case AIStates.Patroling:
@@ -51,6 +54,7 @@ public class GuardAI : MonoBehaviour {
                     break;
 
             }
+			}
         }
 	}
 
@@ -74,7 +78,7 @@ public class GuardAI : MonoBehaviour {
             if (!randomized)
                 agent.SetDestination(patrolPoints[pointWalkedPast].position);
             else
-                agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length + 1)].position);
+                agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length)].position);
             
         }
 

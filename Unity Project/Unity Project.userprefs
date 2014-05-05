@@ -1,15 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Movment.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GuardAI.cs">
     <Files>
-      <File FileName="Assets\Scripts\Movment.cs" Line="18" Column="56" />
-      <File FileName="Assets\Scripts\JumpStick.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Jump.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameTracker.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Alarm.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GuardAI.cs" Line="68" Column="32" />
-      <File FileName="Assets\Scripts\Quest.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapText.cs" Line="14" Column="1" />
+      <File FileName="Assets\Scripts\GuardAI.cs" Line="83" Column="10" />
+      <File FileName="Assets\Scripts\Movment.cs" Line="54" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
