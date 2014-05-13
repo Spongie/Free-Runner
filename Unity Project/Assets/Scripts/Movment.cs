@@ -34,7 +34,6 @@ public class Movment : MonoBehaviour {
                     s.Set(s.x - 100, s.y - 150, s.xMax + 200, s.yMax + 350);
                     if (s.Contains(Input.GetTouch(i).position))
                     {
-                        Debug.Log("Started Moving");
                         moving = true;
                         curentPos = Input.GetTouch(i).position;
                     }

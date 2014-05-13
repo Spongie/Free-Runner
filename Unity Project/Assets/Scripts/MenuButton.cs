@@ -14,7 +14,7 @@ public class MenuButton : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-        if (image.GetScreenRect().Contains(Input.mousePosition) && Input.GetMouseButtonDown(0)) 
+        if ((image.GetScreenRect().Contains(Input.mousePosition) && Input.GetMouseButtonDown(0))||Input.GetKey(KeyCode.P)) 
 		{
             if (scenename == "Exit")
             {
@@ -23,7 +23,7 @@ public class MenuButton : MonoBehaviour
             }
             
             GameSaver saver = GetComponent<GameSaver>();
-            if (saver != null)
+			if (saver != null&& scenename != "Test Scene")
             {
                 if(saver.player != null)
                     saver.SaveScene();

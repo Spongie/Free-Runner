@@ -21,7 +21,10 @@ public class GameSaver : MonoBehaviour {
     {
         Debug.Log("Loading scene");
         if (PlayerPrefs.HasKey("xpos"))
+		{
             LoadPlayer();
+			Debug.Log("Scene has been loaded");
+		}
         LoadQuests();
         GetComponent<GameTracker>().LoadState();
     }
