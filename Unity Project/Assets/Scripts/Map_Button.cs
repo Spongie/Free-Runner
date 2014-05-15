@@ -10,6 +10,7 @@ public class Map_Button : MonoBehaviour {
     public Texture notselected;
     GameObject beskrivningsbox;
     public string QuestTargetName;
+	public string Description;
 
     public bool Isselected 
     {

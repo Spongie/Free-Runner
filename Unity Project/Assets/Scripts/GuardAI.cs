@@ -24,6 +24,10 @@ public class GuardAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if(patrolPoints.Length==0)
+			state = AIStates.Idle;
+		else
+			state = AIStates.Patroling;
 	if(patrolPoints.Length>0 && patrolPoints[0] != null)
         	agent.SetDestination(patrolPoints[Random.Range(0, patrolPoints.Length)].position);
         animation = GetComponentInChildren<Animator>();
