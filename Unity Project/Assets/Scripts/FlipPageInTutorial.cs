@@ -12,7 +12,7 @@ public enum VilkenSida
 public class FlipPageInTutorial : MonoBehaviour {
 	
 	public VilkenSida sidan;
-	public GameObject textTitle1, textTitle2, textTitle3, textActualText1, textActualText2, textActualText3, textureScreenshot;
+	public GameObject textTitle1, textTitle2, textTitle3, textActualText1, textActualText2, textActualText3, textureScreenshot, textureGuard;
 	
 	// Use this for initialization
 	void Start () {
@@ -24,6 +24,7 @@ public class FlipPageInTutorial : MonoBehaviour {
 		textActualText2 = GameObject.FindGameObjectWithTag("text2");
 		textActualText3 = GameObject.FindGameObjectWithTag("text3");
 		textureScreenshot = GameObject.Find("Tutorial_GUITexture_Page2");
+		textureGuard = GameObject.Find("Tutorial_GUITexture_Page3");
 	}
 	
 	#region Enable/Disable
@@ -42,6 +43,7 @@ public class FlipPageInTutorial : MonoBehaviour {
 	{
 		textTitle3.SetActive(true);
 		textActualText3.SetActive(true);
+		textureGuard.SetActive(true);
 	}
 	
 	private void DisableSida1()
@@ -59,6 +61,7 @@ public class FlipPageInTutorial : MonoBehaviour {
 	{
 		textTitle3.SetActive(false);
 		textActualText3.SetActive(false);
+		textureGuard.SetActive(false);
 	}
 	#endregion Enable/Disable
 	
