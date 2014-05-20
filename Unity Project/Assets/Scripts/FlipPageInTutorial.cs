@@ -14,6 +14,7 @@ public class FlipPageInTutorial : MonoBehaviour {
 	public VilkenSida sidan;
 	public Font font;
 	public int Size;
+	public Texture2D knapp;
 	public GameObject textTitle1, textTitle2, textTitle3, textActualText1, textActualText2, textActualText3, textureScreenshot, textureGuard;
 	
 	// Use this for initialization
@@ -98,6 +99,7 @@ public class FlipPageInTutorial : MonoBehaviour {
 
 		style.font = font;
 		style.fontSize = Size;
+		style.normal.background = knapp;
 		//GUI.Box(Rect(0, 0, 100, 100), "Sidor:");
 		if (GUI.Button(sida1, "Sida 1",style)){
 			sidan = VilkenSida.sida1;}
