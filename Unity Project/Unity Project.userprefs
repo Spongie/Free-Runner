@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Alarm.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Area.cs">
     <Files>
-      <File FileName="Assets\Scripts\DiscoveryBar.cs" Line="20" Column="33" />
-      <File FileName="Assets\Scripts\Alarm.cs" Line="107" Column="28" />
+      <File FileName="Assets\Scripts\Area.cs" Line="15" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
