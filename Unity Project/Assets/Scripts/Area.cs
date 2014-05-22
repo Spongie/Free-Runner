@@ -11,6 +11,7 @@ public class Area : MonoBehaviour {
 
 	void Start()
 	{
+		PopUpBackground.enabled = false;
 		currentTimeElapsed = 0;
 	}
 
@@ -18,19 +19,23 @@ public class Area : MonoBehaviour {
 	{
 		if (PopUpBackground.enabled) 
 		{
+			Debug.Log("Background is up");
 			currentTimeElapsed += Time.deltaTime;
             if (currentTimeElapsed > secondsToDisplay)
             {
+				Debug.Log ("Message down");
                 PopUpBackground.enabled = false;
                 if (destroyAble)
                     Destroy(this.gameObject);
             }
 		}
         text.enabled = PopUpBackground.enabled;
+
 	}
 
 	public void OnTriggerEnter(Collider collision)
 	{
+
 		if (collision.gameObject.tag == "Player") 
 		{
 			Debug.Log("Entered A new area");

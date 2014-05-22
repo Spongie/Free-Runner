@@ -24,7 +24,7 @@ public class GuardAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		if(patrolPoints.Length==0)
+		if(patrolPoints.Length==0||patrolPoints[0] == null)
 			state = AIStates.Idle;
 		else
 			state = AIStates.Patroling;
