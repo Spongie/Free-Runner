@@ -100,6 +100,7 @@ public class FlipPageInTutorial : MonoBehaviour {
 		style.font = font;
 		style.fontSize = Size;
 		style.normal.background = knapp;
+		style.alignment = TextAnchor.MiddleCenter;
 		//GUI.Box(Rect(0, 0, 100, 100), "Sidor:");
 		if (GUI.Button(sida1, "Sida 1",style)){
 			sidan = VilkenSida.sida1;}
