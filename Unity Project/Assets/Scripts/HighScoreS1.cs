@@ -67,17 +67,12 @@ public class HighScoreS1 : MonoBehaviour
 
 	public List<string> LoadScoreTime()
 	{
-        Debug.Log("Loading scores");
-        Debug.Log("Looking for file at: " + fileNameTime);
 		List<string> rList = new List<string>();
         if (File.Exists(fileNameTime))
         {
             string[] highScoreT = System.IO.File.ReadAllLines(fileNameTime);
             rList.AddRange(highScoreT);
         }
-        else
-            Debug.Log("Error: File not found");
-        Debug.Log("Found " + rList.Count + " nr of scores");
 		return rList;
 	}
 
@@ -115,7 +110,6 @@ public class HighScoreS1 : MonoBehaviour
 
 	private void TrimToTop10()
 	{
-        Debug.Log("Nr of Scores: " + highScoreNames.Count);
 		if (highScoreNames.Count <= 10)
 			return;
 		while (highScoreNames.Count != 10)
@@ -127,8 +121,6 @@ public class HighScoreS1 : MonoBehaviour
 
 	private void SaveToFile()
 	{
-        Debug.Log("Saving highscores");
-        Debug.Log("FilePath: " + fileNameName);
         System.IO.File.WriteAllLines(fileNameTime, highScoreTimes.ToArray());
 		System.IO.File.WriteAllLines(fileNameName, highScoreNames.ToArray());
 	}

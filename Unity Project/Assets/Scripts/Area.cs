@@ -19,11 +19,9 @@ public class Area : MonoBehaviour {
 	{
 		if (PopUpBackground.enabled) 
 		{
-			Debug.Log("Background is up");
 			currentTimeElapsed += Time.deltaTime;
             if (currentTimeElapsed > secondsToDisplay)
             {
-				Debug.Log ("Message down");
                 PopUpBackground.enabled = false;
                 if (destroyAble)
                     Destroy(this.gameObject);
@@ -38,7 +36,6 @@ public class Area : MonoBehaviour {
 
 		if (collision.gameObject.tag == "Player") 
 		{
-			Debug.Log("Entered A new area");
             Debug.Log(destroyAble);
 			PopUpBackground.enabled = true;
 			currentTimeElapsed = 0;

@@ -19,11 +19,9 @@ public class GameSaver : MonoBehaviour {
 
     public void LoadScene()
     {
-        Debug.Log("Loading scene");
         if (PlayerPrefs.HasKey("xpos"))
 		{
             LoadPlayer();
-			Debug.Log("Scene has been loaded");
 		}
         LoadQuests();
         GetComponent<GameTracker>().LoadState();
@@ -66,7 +64,6 @@ public class GameSaver : MonoBehaviour {
             if (PlayerPrefs.GetString(quest.targetName) != "Avklarad!")
             {
                 PlayerPrefs.SetString(quest.targetName, quest.description);
-                Debug.Log("Saved quest with name: " + quest.targetName);
             }
         }
     }
@@ -76,7 +73,6 @@ public class GameSaver : MonoBehaviour {
         PlayerPrefs.SetFloat("xpos", player.position.x);
         PlayerPrefs.SetFloat("ypos", player.position.y);
         PlayerPrefs.SetFloat("zpos", player.position.z);
-        Debug.Log("Saved player position");
     }
 
     private void SavePlayerRotation()
@@ -84,6 +80,5 @@ public class GameSaver : MonoBehaviour {
         PlayerPrefs.SetFloat("xRot", player.eulerAngles.x);
         PlayerPrefs.SetFloat("yRot", player.eulerAngles.y);
         PlayerPrefs.SetFloat("zRot", player.eulerAngles.z);
-        Debug.Log("Saving player rotation");
     }
 }
