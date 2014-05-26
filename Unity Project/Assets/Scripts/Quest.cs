@@ -63,7 +63,7 @@ public class Quest : MonoBehaviour {
             */SaveCompleted();
 		}
 	}
-	void OnGui()
+	void OnGUI()
 	{
 		GUIStyle style = new GUIStyle();
 		style.font = font;
@@ -72,7 +72,7 @@ public class Quest : MonoBehaviour {
 		style.alignment = TextAnchor.MiddleCenter;
 		if(display)
 		{
-			GUI.Label(new Rect (Screen.width/2,Screen.height/2,500,500), "Uppdrag avklarat " + targetName,style);
+			GUI.Label(new Rect (Screen.width/2-250,-250,500,500), "Uppdrag avklarat " + targetName,style);
 			Debug.Log ("Visar text");
 		}
 	}
