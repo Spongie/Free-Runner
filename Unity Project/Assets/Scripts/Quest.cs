@@ -71,7 +71,10 @@ public class Quest : MonoBehaviour {
 		style.normal.background = popupTexture;
 		style.alignment = TextAnchor.MiddleCenter;
 		if(display)
-			GUI.Label(new Rect (Screen.width/2,Screen.height/2,500,500), "Uppdrag avklarat " + targetName,style); 
+		{
+			GUI.Label(new Rect (Screen.width/2,Screen.height/2,500,500), "Uppdrag avklarat " + targetName,style);
+			Debug.Log ("Visar text");
+		}
 	}
     public void SaveCompleted()
     {
