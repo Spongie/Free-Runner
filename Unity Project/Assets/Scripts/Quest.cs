@@ -35,7 +35,7 @@ public class Quest : MonoBehaviour {
 			currentTimeElapsed += Time.deltaTime;
 			if (currentTimeElapsed > 3)
 			{
-				display = false;
+				Destroy(this.gameObject);
 			}
 		}
 	}
