@@ -11,8 +11,9 @@ public class Quest : MonoBehaviour {
     public bool isMain;
 	bool display = false;
 	float currentTimeElapsed;
+	public Font font;
 
-    public Texture popupTexture;
+    public Texture2D popupTexture;
 
     void Start()
     {
@@ -35,14 +36,17 @@ public class Quest : MonoBehaviour {
 			currentTimeElapsed += Time.deltaTime;
 			if (currentTimeElapsed > 3)
 			{
-				Destroy(this.gameObject);
+				Debug.Log ("quest completed");
+				completed = true;
+				display = false;
 			}
 		}
 	}
     void OnTriggerEnter(Collider collision)
 	{
-		if (collision.gameObject.tag == "Player")
+		if (collision.gameObject.tag == "Player"&& !completed)
 		{
+			Debug.Log("Player entered");
 			display = true;
             /*Debug.Log("Quest completed! Investigated " + targetName);
             completed = true;
@@ -61,8 +65,13 @@ public class Quest : MonoBehaviour {
 	}
 	void OnGui()
 	{
+		GUIStyle style = new GUIStyle();
+		style.font = font;
+		style.fontSize = 100;
+		style.normal.background = popupTexture;
+		style.alignment = TextAnchor.MiddleCenter;
 		if(display)
-			GUI.Label(new Rect (Screen.width/2,0,500,500), "Uppdrag avklarat " + targetName); 
+			GUI.Label(new Rect (Screen.width/2,Screen.height/2,500,500), "Uppdrag avklarat " + targetName,style); 
 	}
     public void SaveCompleted()
     {
