@@ -37,7 +37,7 @@ public class Map_Button : MonoBehaviour {
             DeselectAll();
             isselected = true;
             image.texture = selected;
-            beskrivningsbox.GetComponent<MapText>().SetText(PlayerPrefs.GetString(QuestTargetName));
+            beskrivningsbox.GetComponent<MapText>().SetText(QuestTargetName);
         }
 	}
 
