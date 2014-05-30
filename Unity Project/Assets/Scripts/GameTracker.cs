@@ -70,6 +70,7 @@ public class GameTracker : MonoBehaviour {
 
     public void SaveState()
     {
+		QuestProgress.Update();
         Debug.Log("Saving state at: " + secondsElapsed);
         PlayerPrefs.SetFloat("sec", secondsElapsed);
         PlayerPrefs.SetFloat("min", minuetsElapsed);

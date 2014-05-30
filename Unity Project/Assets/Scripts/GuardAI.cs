@@ -64,11 +64,19 @@ public class GuardAI : MonoBehaviour {
 
 	public bool IsAwareOfPlayer()
 	{
+		RaycastHit hit = new RaycastHit();
+		Vector3 playerPos = new Vector3(player.transform.position.x,player.transform.position.y+1,player.transform.position.z);
+		Vector3 dir = playerPos - transform.position;
 		float length = Vector3.Distance(player.transform.position,transform.position);
-		if(length <= detectRadius)
-			return true;
-		else 
-			return false;
+		if(Physics.Raycast(transform.position,dir,out hit,detectRadius) )
+		{
+			if(hit.transform.tag == "Player")
+			{
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 	public void Patroling()

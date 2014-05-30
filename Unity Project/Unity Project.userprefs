@@ -1,19 +1,9 @@
 ﻿<Properties>
-<<<<<<< HEAD
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Alarm.cs">
-=======
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Map_Button.cs">
->>>>>>> 0355167b568ed83d23253b2b3b7a507de3031764
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SpawnFinder.cs">
     <Files>
-      <File FileName="Assets\Scripts\Map_Button.cs" Line="40" Column="60" />
-      <File FileName="Assets\Scripts\Quest.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\FlipPageInTutorial.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Alarm.cs" Line="66" Column="24" />
-      <File FileName="Assets\Scripts\Area.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\HighScoreS1.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\MapText.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\QuestProgress.cs" Line="40" Column="27" />
+      <File FileName="Assets\Scripts\SpawnFinder.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

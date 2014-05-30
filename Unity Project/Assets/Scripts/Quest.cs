@@ -11,6 +11,7 @@ public class Quest : MonoBehaviour {
     public bool isMain;
 	bool display = false;
 	float currentTimeElapsed;
+	public string område;
 	public Font font;
 
     public Texture2D popupTexture;
