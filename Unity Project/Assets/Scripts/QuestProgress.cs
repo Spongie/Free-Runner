@@ -52,91 +52,91 @@ public class QuestProgress
 			if(quest.område == "slottet")
 			{
 				slottetMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					slottetComp++;
 			}
 
 			if(quest.område == "oskar")
 			{
 				oskarMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					oskarComp++;
 			}
 
 			if(quest.område == "svanen")
 			{
 				svanenMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					svanenComp++;
 			}
 
 			if(quest.område == "residenten")
 			{
 				residentenMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					residentenComp++;
 			}
 
 			if(quest.område == "claus")
 			{
 				clausMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					clausComp++;
 			}
 
 			if(quest.område == "lilla Torg")
 			{
 				lillaTorgMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					lillaTorgComp++;
 			}
 
 			if(quest.område == "kyrkan")
 			{
 				kyrkanMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					kyrkanComp++;
 			}
 
 			if(quest.område == "gertrud")
 			{
 				gertrudMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					gertrudComp++;
 			}
 
 			if(quest.område == "knut")
 			{
 				knutMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					knutComp++;
 			}
 
 			if(quest.område == "frans")
 			{
 				fransMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					fransComp++;
 			}
 
 			if(quest.område == "dissen")
 			{
 				slottetMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					slottetComp++;
 			}
 
 			if(quest.område == "lejonet")
 			{
 				lejonetMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					lejonetComp++;
 			}
 
 			if(quest.område == "gripen")
 			{
 				gripenMax++;
-				if(quest.Completed)
+				if(quest.Completed||quest.description =="Avklarad!")
 					gripenComp++;
 			}
 

@@ -6,7 +6,7 @@ public class Quest : MonoBehaviour {
 
     public string description;
 	public string targetName;
-    bool completed;
+    public bool completed;
     public GameObject area;
     public bool isMain;
 	bool display = false;
@@ -38,7 +38,6 @@ public class Quest : MonoBehaviour {
 			if (currentTimeElapsed > 3)
 			{
 				Debug.Log ("quest completed");
-				completed = true;
 				display = false;
 			}
 		}
@@ -49,6 +48,7 @@ public class Quest : MonoBehaviour {
 		{
 			Debug.Log("Player entered");
 			display = true;
+			completed = true;
             /*Debug.Log("Quest completed! Investigated " + targetName);
             completed = true;
             Destroy(GetComponent<BoxCollider>());
