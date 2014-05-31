@@ -49,6 +49,8 @@ public class Quest : MonoBehaviour {
 			Debug.Log("Player entered");
 			display = true;
 			completed = true;
+			ParticleRenderer particles = GetComponentInChildren<ParticleRenderer>();
+			particles.enabled = false;
             /*Debug.Log("Quest completed! Investigated " + targetName);
             completed = true;
             Destroy(GetComponent<BoxCollider>());
