@@ -82,4 +82,9 @@ public class Quest : MonoBehaviour {
         description = "Avklarad!";
         GameObject.FindGameObjectWithTag("Discovery").GetComponent<DiscoveryBar>().RaiseAwareness();
     }
+
+	public void LoadFromMap()
+	{
+		description = "Avklarad!";
+	}
 }

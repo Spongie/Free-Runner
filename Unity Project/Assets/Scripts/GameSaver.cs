@@ -50,7 +50,7 @@ public class GameSaver : MonoBehaviour {
             if (PlayerPrefs.GetString(quest.targetName) == "Avklarad!")
             {
                 Destroy(quest.GetComponent<BoxCollider>());
-                quest.SaveCompleted();
+				quest.LoadFromMap();
             }
         }
     }
