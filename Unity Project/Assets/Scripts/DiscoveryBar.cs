@@ -17,6 +17,10 @@ public class DiscoveryBar : MonoBehaviour {
         maxHeight = 1000;
     }
 
+	void Update()
+	{
+		ChangeAlertBar();
+	}
     public void RaiseAwareness()
     {
         if (maxAwareness > awareness)
@@ -28,6 +32,16 @@ public class DiscoveryBar : MonoBehaviour {
 
     public void ChangeAlertBar()
     {
+		awareness = 0;
+		GameObject[] quests = GameObject.FindGameObjectsWithTag("Quest");
+		foreach (GameObject item in quests)
+		{
+			Quest quest = item.GetComponent<Quest>();
+			if (quest.description == "Avklarad!")
+			{
+				++awareness;
+			}
+		}
         percentOfAwareness = awareness / maxAwareness;
         Rect alerter = alertBar.pixelInset;
         alerter.height = (maxHeight * percentOfAwareness);
