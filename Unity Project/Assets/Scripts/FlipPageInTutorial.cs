@@ -117,10 +117,10 @@ public class FlipPageInTutorial : MonoBehaviour {
 
 	void OnGUI()
 	{
-		Rect sida1 = new Rect(20,420,450,150);
-		Rect sida2 = new Rect(20,570,450,150);
-		Rect sida3 = new Rect(20,720,450,150);
-		Rect sida4 = new Rect(20,870,450,150);
+		Rect sida1 = new Rect(20,320,450,150);
+		Rect sida2 = new Rect(20,470,450,150);
+		Rect sida3 = new Rect(20,620,450,150);
+		Rect sida4 = new Rect(20,770,450,150);
 
 		GUIStyle style = new GUIStyle();
 
