@@ -6,7 +6,8 @@ public enum VilkenSida
 {
 	sida1,
 	sida2,
-	sida3
+	sida3,
+	sida4
 }
 
 public class FlipPageInTutorial : MonoBehaviour {
@@ -15,7 +16,7 @@ public class FlipPageInTutorial : MonoBehaviour {
 	public Font font;
 	public int Size;
 	public Texture2D knapp;
-	public GameObject textTitle1, textTitle2, textTitle3, textActualText1, textActualText2, textActualText3, textureScreenshot, textureGuard;
+	public GameObject textTitle1, textTitle2, textTitle3, textTitle4, textActualText1, textActualText2, textActualText3, textActualText4, textureScreenshot, textureGuard, textureParticle;
 	
 	// Use this for initialization
 	void Start () {
@@ -23,11 +24,14 @@ public class FlipPageInTutorial : MonoBehaviour {
 		textTitle1 = GameObject.FindGameObjectWithTag("titel1");
 		textTitle2 = GameObject.FindGameObjectWithTag("titel2");
 		textTitle3 = GameObject.FindGameObjectWithTag("titel3");
+		textTitle4 = GameObject.FindGameObjectWithTag("titel4");
 		textActualText1 = GameObject.FindGameObjectWithTag("text1");
 		textActualText2 = GameObject.FindGameObjectWithTag("text2");
 		textActualText3 = GameObject.FindGameObjectWithTag("text3");
+		textActualText4 = GameObject.FindGameObjectWithTag("text4");
 		textureScreenshot = GameObject.Find("Tutorial_GUITexture_Page2");
 		textureGuard = GameObject.Find("Tutorial_GUITexture_Page3");
+		textureParticle = GameObject.Find("Tutorial_GUITexture_Page4");
 	}
 	
 	#region Enable/Disable
@@ -48,6 +52,12 @@ public class FlipPageInTutorial : MonoBehaviour {
 		textActualText3.SetActive(true);
 		textureGuard.SetActive(true);
 	}
+	private void EnableSida4()
+	{
+		textTitle4.SetActive(true);
+		textActualText4.SetActive(true);
+		textureParticle.SetActive(true);
+	}
 	
 	private void DisableSida1()
 	{
@@ -66,6 +76,12 @@ public class FlipPageInTutorial : MonoBehaviour {
 		textActualText3.SetActive(false);
 		textureGuard.SetActive(false);
 	}
+	private void DisableSida4()
+	{
+		textTitle4.SetActive(false);
+		textActualText4.SetActive(false);
+		textureParticle.SetActive(false);
+	}
 	#endregion Enable/Disable
 	
 	// Update is called once per frame
@@ -76,16 +92,25 @@ public class FlipPageInTutorial : MonoBehaviour {
 			EnableSida1();
 			DisableSida2();
 			DisableSida3();
+			DisableSida4();
 			break;
 		case VilkenSida.sida2:
 			DisableSida1();
 			EnableSida2();
 			DisableSida3();
+			DisableSida4();
 			break;
 		case VilkenSida.sida3:
 			DisableSida1();
 			DisableSida2();
 			EnableSida3();
+			DisableSida4();
+			break;
+		case VilkenSida.sida4:
+			DisableSida1();
+			DisableSida2();
+			DisableSida3();
+			EnableSida4();
 			break;
 		}
 	}
@@ -95,6 +120,8 @@ public class FlipPageInTutorial : MonoBehaviour {
 		Rect sida1 = new Rect(20,420,450,150);
 		Rect sida2 = new Rect(20,570,450,150);
 		Rect sida3 = new Rect(20,720,450,150);
+		Rect sida4 = new Rect(20,870,450,150);
+
 		GUIStyle style = new GUIStyle();
 
 		style.font = font;
@@ -108,5 +135,7 @@ public class FlipPageInTutorial : MonoBehaviour {
 			sidan = VilkenSida.sida2;}
 		if (GUI.Button(sida3, "Sida 3",style)){
 			sidan = VilkenSida.sida3;}
+		if (GUI.Button(sida4, "Sida 4",style)){
+			sidan = VilkenSida.sida4;}
 	}
 }
