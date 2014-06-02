@@ -51,6 +51,7 @@ public class GameSaver : MonoBehaviour {
             {
                 Destroy(quest.GetComponent<BoxCollider>());
 				quest.LoadFromMap();
+				quest.TurnOffParticles();
             }
         }
     }

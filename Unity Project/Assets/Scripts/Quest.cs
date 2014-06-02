@@ -19,7 +19,13 @@ public class Quest : MonoBehaviour {
     void Start()
     {
         completed = false;
-    }
+		if(description == "Avklarad!")
+		{
+			completed = true;
+			ParticleRenderer particles = GetComponentInChildren<ParticleRenderer>();
+			particles.enabled = false;
+		}
+	}
 
 	public bool Completed
     {
@@ -88,5 +94,11 @@ public class Quest : MonoBehaviour {
 	public void LoadFromMap()
 	{
 		description = "Avklarad!";
+	}
+	public void TurnOffParticles()
+	{
+		completed = true;
+		ParticleRenderer particles = GetComponentInChildren<ParticleRenderer>();
+		particles.enabled = false;
 	}
 }
