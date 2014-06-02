@@ -32,7 +32,7 @@ public class GameTracker : MonoBehaviour {
 
     public string GetTimeString()
     {
-        string s = string.Format("H:{0,1}:M{1,2}:S{2,2}", hoursElapsed, minuetsElapsed, secondsElapsed.ToString("f2"));
+        string s = secondsElapsed.ToString();
         return s;
     }
 
